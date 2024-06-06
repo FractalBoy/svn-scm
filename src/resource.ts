@@ -49,7 +49,7 @@ export class Resource implements SourceControlResourceState {
     private _renameResourceUri?: Uri,
     private _props?: string,
     private _remote: boolean = false
-  ) {}
+  ) { }
 
   @memoize
   get resourceUri(): Uri {
@@ -95,6 +95,14 @@ export class Resource implements SourceControlResourceState {
       "sourceControl.changesLeftClick",
       "open diff"
     );
+
+    if (!this.remote && this.type == Status.CONFLICTED) {
+      return {
+        command: "svn.openConflict",
+        title: "Open Conflict Merge Resolution",
+        arguments: [this]
+      };
+    }
 
     if (!this.remote && changesLeftClick === "open") {
       return {
