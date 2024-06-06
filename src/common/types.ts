@@ -47,13 +47,15 @@ export interface ISvnInfo {
   conflict?: {
     operation: string;
     type: string;
-    version: [{
-      kind: string;
-      pathInRepos: string;
-      reposUrl: string;
-      revision: string;
-      side: string;
-    }];
+    version: [
+      {
+        kind: string;
+        pathInRepos: string;
+        reposUrl: string;
+        revision: string;
+        side: string;
+      }
+    ];
     prevBaseFile?: string;
     prevWcFile?: string;
     curBaseFile?: string;

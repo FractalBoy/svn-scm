@@ -16,7 +16,12 @@ export class OpenConflict extends Command {
     this.runByRepository(selection[0].resourceUri, async (repo, result) => {
       const info = await repo.repository.getInfo(result.fsPath);
 
-      if (!info.conflict || !info.conflict.curBaseFile || !info.conflict.prevWcFile || !info.conflict.prevBaseFile) {
+      if (
+        !info.conflict ||
+        !info.conflict.curBaseFile ||
+        !info.conflict.prevWcFile ||
+        !info.conflict.prevBaseFile
+      ) {
         return;
       }
 
@@ -27,7 +32,12 @@ export class OpenConflict extends Command {
       // TODO: _open.mergeEditor is not currently exposed to non-builtin VSCode extensions.
       // Update the command when there is an externally facing API.
       // See https://github.com/microsoft/vscode/tree/15bdea120dc16143a6ec01ad5f12bc273632a483/extensions/git/src/commands.ts#L748 for example usage.
-      await commands.executeCommand("_open.mergeEditor", { base, input1, input2, output: result });
+      await commands.executeCommand("_open.mergeEditor", {
+        base,
+        input1,
+        input2,
+        output: result
+      });
     });
   }
 }

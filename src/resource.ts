@@ -49,7 +49,7 @@ export class Resource implements SourceControlResourceState {
     private _renameResourceUri?: Uri,
     private _props?: string,
     private _remote: boolean = false
-  ) { }
+  ) {}
 
   @memoize
   get resourceUri(): Uri {
