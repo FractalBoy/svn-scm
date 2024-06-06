@@ -47,7 +47,7 @@ jobs:
             vscode-${{ runner.os }}-
       
       - name: Run tests
-        uses: GabrielBB/xvfb-action@v1.0
+        uses: coactions/setup-xvfb@v1
         with:
           run: yarn test
         env:
