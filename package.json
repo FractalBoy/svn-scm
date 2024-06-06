@@ -273,6 +273,11 @@
                 "category": "SVN"
             },
             {
+                "command": "svn.openConflict",
+                "title": "Open Conflict Merge Resolution",
+                "category": "SVN"
+            },
+            {
                 "command": "svn.patch",
                 "title": "Show diff patch for selected",
                 "category": "SVN"
@@ -866,6 +871,11 @@
                 {
                     "command": "svn.openChangeHead",
                     "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != unversioned && scmResourceGroup != external",
+                    "group": "navigation"
+                },
+                {
+                    "command": "svn.openConflict",
+                    "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == conflicts && scmResourceGroup != external",
                     "group": "navigation"
                 },
                 {
